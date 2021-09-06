@@ -1,4 +1,4 @@
-package com.potoware.set;
+package com.potoware.list;
 
 import com.potoware.set.modelo.Alumno;
 import java.util.LinkedList;
