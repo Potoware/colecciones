@@ -22,7 +22,7 @@ public class Alumno implements Comparable<Alumno>{
         this.nombre = nombre;
     }
 
-    public double getNota() {
+    public Integer getNota() {
         return nota;
     }
 
@@ -38,10 +38,10 @@ public class Alumno implements Comparable<Alumno>{
 
     @Override
     public int compareTo(Alumno o) {
-        if(this.nota ==null) {
+        if(this.nombre ==null) {
             return 0;
         }
-        return this.nota.compareTo(o.nota);
+        return this.nombre.compareTo(String.valueOf(o.nota));
     }
 
     @Override
