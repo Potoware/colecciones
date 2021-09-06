@@ -3,6 +3,7 @@ package com.potoware.set;
 import com.potoware.set.modelo.Alumno;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class EjemploLinkedList {
     public static void main(String[] args) {
@@ -39,7 +40,16 @@ public class EjemploLinkedList {
         System.out.println(linkedListl);
         Alumno paco = new Alumno("Armando", 10);
         System.out.println("Indice de Paco "+ linkedListl.indexOf(paco));
-        
+
+        ListIterator<Alumno> li = linkedListl.listIterator();
+        System.out.println("======ITERATOR Next=====");
+        while(li.hasNext()){
+            System.out.println(li.next());
+        }
+        System.out.println("======ITERATOR Previus=====");
+        while(li.hasPrevious()){
+            System.out.println(li.previous());
+        }
 
     }
 }
