@@ -9,22 +9,39 @@ public class EjemploHashMap {
 
     public static void main(String[] args) {
 
-        Map<String,String> persona = new HashMap<>();
+        Map<String,Object> persona = new HashMap<>();
         System.out.println("total: " + persona.size());
         persona.put(null,"1234");
         persona.put(null,"12345");
         persona.put("nombre", "Juan");
         persona.put("apellido", "Doe");
         persona.put("email","apotosi@uninpahu.edu.co");
-        persona.put("edad", "38");
+        persona.put("edad", 38);
         persona.put("apellido", "rueda");
 
+        Map<String, String> direccion = new HashMap<>();
+        direccion.put("pais", "colombia");
+        direccion.put("ciudad", "bogota");
+        direccion.put("departamento", "cundinamarca");
+        direccion.put("barrio", "Villa Diana");
+
+        persona.put("direccion",direccion);
         System.out.println("persona = " + persona);
 
-        String nombre = persona.get("nombre");
+        String nombre = (String) persona.get("nombre");
         System.out.println("nombre = " + nombre);
-        String apellido = persona.get("apellido");
+        String apellido = (String) persona.get("apellido");
         System.out.println("apellido = " + apellido);
+
+        Map<String, String> direccionPersona = (Map<String, String>) persona.get("direccion");
+        String pais = direccionPersona.get("pais");
+        String ciudad = direccionPersona.get("ciudad");
+        String calle = direccionPersona.getOrDefault("numero","La playa");
+
+        System.out.println("El pais de Juan es:  " + pais);
+        System.out.println("La calle de juan es: " + calle);
+        System.out.println("La ciudad de juan es:  " + ciudad);
+
 
         //String apellidoPaterno = persona.remove("apellido");
         boolean apellidoPaterno = persona.remove("apellido","rueda");
@@ -36,8 +53,8 @@ public class EjemploHashMap {
         b2 = persona.containsValue("38");
         System.out.println("b2 = " + b2);
 
-        Collection<String> valores = persona.values();
-        for (String valor: valores) {
+        Collection<Object> valores = persona.values();
+        for (Object valor: valores) {
             System.out.println("valor = " + valor);
             
         }
@@ -49,7 +66,7 @@ public class EjemploHashMap {
             
         }
         System.out.println("====== =ENTRYSET ======");
-        for(Map.Entry<String,String> par: persona.entrySet()){
+        for(Map.Entry<String, Object> par: persona.entrySet()){
             System.out.println("par = " + par.getKey());
         }
         System.out.println("====== =Lamda ======");
